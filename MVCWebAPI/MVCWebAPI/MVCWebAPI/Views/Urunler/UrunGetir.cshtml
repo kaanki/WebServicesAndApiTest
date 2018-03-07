@@ -1,0 +1,45 @@
+﻿
+@{
+    Layout = null;
+}
+Urun ID<input type="text" id="urunId"/>
+<br />
+<input type="button" id="urunGetir" value="Ürün Getir">
+<br />
+<div id="urun"></div>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $(document).ready(function () {
+
+            $('#urunGetir').click(function () {
+
+                var urunId = $('#urunId').val();
+
+                $.getJSON('../api/urun/' + urunId).done(function (urun) {
+
+                    var urunBilgisi = urun.Ad + " Fiyati: " + urun.Fiyat + " TL - Stok Miktari: " + urun.StokMiktari;
+
+                    $('#urun').html(urunBilgisi);
+
+
+                })
+
+                .error(function(xhr,options,error)
+                {
+                if(error=="Not Found")
+                    {
+                        alert("urun bulunamadi");
+                    }
+                else if(error=="Unauthorized")
+                    {
+                    alert("kullanicinin yetkisi yok");
+                    }
+                }
+                });
+
+        });
+    });
+</script>
+

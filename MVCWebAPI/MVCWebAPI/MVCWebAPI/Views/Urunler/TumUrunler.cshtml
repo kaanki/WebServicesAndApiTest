@@ -1,0 +1,32 @@
+﻿
+@{
+    Layout = null;
+    ViewBag.Title = "Tum Urunler";
+}
+
+<h2>Tum Urunler</h2>
+<input type="button" id="urunleriListele" value="Ürünleri Listele"/>
+<div id="urunler"></div>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        //urunleriListele butona tiklama islemi yapilmasi olayi
+        $('urunleriListele').click(function () {
+            //UrunController sinifinda ki GetAllUrun action methodunu cagiriyoruz
+            //Veriler tam olarak alindiginda .done fonksiyonu calisacak
+            $.getJSON('../api/urun').done(function (veri) {
+                //urunler divine yazilacak bilgileri urunler nesnesinde tutuyoruz.
+                var urunler = "";
+                //action methodundan alinan ürün listesini(veri) tek tek isleme aliyoruz.
+                $.each(veri, function (key, urun) {
+                    //urun bilgilerini alt alta yazdiriyoruz.
+                    urunler += urun.Ad + "Fiyati: " + urun.Fiyat + " TL - Stok Miktari: " + urun.StokMiktari + "<br/>";
+                });
+                //urunler divine olsturdugumuz urun bilglerini yazdiriyorum.
+                $('#urunler').html(urunler);
+            })
+
+        });
+    })
+</script>

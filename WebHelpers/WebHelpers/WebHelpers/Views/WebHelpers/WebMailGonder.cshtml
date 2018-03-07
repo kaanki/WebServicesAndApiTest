@@ -1,0 +1,15 @@
+﻿@using System.Web.Helpers
+@{
+    Layout = null;
+}
+@{ 
+
+    WebMail.SmtpServer = "smtp.domain.com";
+    WebMail.SmtpPort = 465;
+    WebMail.From = "posta@domain.com";
+    WebMail.UserName = "posta@domain.com";
+    WebMail.Password = "sifre";
+    WebMail.Send(to: "kime@domain2.com", subject: "Konu", body: "icerik");
+
+}
+

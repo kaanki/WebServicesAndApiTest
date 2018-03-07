@@ -1,0 +1,24 @@
+﻿
+@{
+    Layout = null;
+}
+
+@{ 
+
+
+    var grafik = new Chart(width: 400, height: 400);
+    grafik.AddTitle(text: "1. Sinif 2014 Bahar Donemi Not Ortalamalari Standart Sapmalar");
+    grafik.AddLegend(title: "Veriler");
+    grafik.AddSeries(
+        name: "Ortalamalar",
+        xValue: new[] { "bm101", "bm102", "bm103" },
+        yValues: new[] { 80, 40, 60 }
+        );
+    grafik.AddSeries(
+        name: "Standart Sapma",
+        xValue: new[] { "bm101", "bm102", "bm103" },
+        yValues: new[] { 20, 35, 25 }
+        );
+    grafik.Write(format: "png");
+
+ }

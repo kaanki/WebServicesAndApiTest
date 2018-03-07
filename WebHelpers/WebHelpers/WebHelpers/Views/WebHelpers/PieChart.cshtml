@@ -1,0 +1,42 @@
+﻿
+@{
+    Layout = null;
+
+    var grafik0 = new Chart(width: 400, height: 400);
+    grafik0.AddLegend(title: "Degerler");
+    grafik0.AddTitle(text: "1. Sinif Bahar donemi not ortalamalari");
+    grafik0.AddSeries(name: "Ortalamalar", chartType: "Doughnut",
+        xValue: new[] { "BM101", "bm102", "bm103" },
+        yValues: new[] { 83, 45, 67 });
+    //grafik0.Write();
+        
+}
+
+@{
+    Layout = null;
+
+    var grafik2 = new Chart(width: 400, height: 400);
+    grafik2.AddLegend(title: "Doviz Cinsi");
+    grafik2.AddTitle(text: "Gun ici Doviz alis grafigi");
+    grafik2.AddSeries(name: "Altin(ons)", chartType: "Area",
+        xValue: new[] { "10:00", "12:00", "14:00","16:00" },
+        yValues: new[] { 1283, 1245, 1267,1276 });
+    //grafik2.Write();
+
+}
+
+
+@{
+    Layout = null;
+
+    var grafik3 = new Chart(width: 400, height: 400);
+    grafik3.AddLegend(title: "Doviz Cinsi");
+    grafik3.AddTitle(text: "Gun ici Doviz alis grafigi");
+    grafik3.AddSeries(name: "Altin(ons)", chartType: "SplineArea",
+        xValue: new[] { "10:00", "12:00", "14:00", "16:00" },
+        yValues: new[] { 1283, 1245, 1267, 1276 });
+    grafik3.Write();
+
+}
+
+

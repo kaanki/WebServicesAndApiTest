@@ -1,0 +1,22 @@
+﻿
+@{
+    Layout = null;
+ }
+
+@{ 
+
+    var grafik = new Chart(width: 400, height: 400);
+    grafik.AddTitle(text: "1.Sinif 2014 Bahar Donemi Not Ortalamalari");
+    grafik.AddLegend(title: "Veriler");
+
+    grafik.AddSeries(
+
+        name: "Ortalamalar",
+        xValue: new[] { "BM101", "BM102", "BM103" },
+        yValues: new[] { 80, 40, 60 }
+        );
+    grafik.Write();
+
+}
+
+

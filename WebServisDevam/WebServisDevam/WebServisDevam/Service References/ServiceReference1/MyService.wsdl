@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Pisagor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="sayi1" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="sayi2" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PisagorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PisagorResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRssData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="url" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRssDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRssDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRssDataWithJsonFormat">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRssDataWithJsonFormatResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRssDataWithJsonFormatResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllMenu">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllMenuResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllMenuResult" type="tns:ArrayOfMenu" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMenu">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Menu" nillable="true" type="tns:Menu" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Menu">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Surname" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetJsonFormat">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetJsonFormatResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetJsonFormatResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTweets">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTweetsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTweetsResult" type="tns:ArrayOfTweet" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTweet">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Tweet" nillable="true" type="tns:Tweet" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Tweet">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Twit" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetTweetsJson">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTweetsJsonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTweetsJsonResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="PisagorSoapIn">
+    <wsdl:part name="parameters" element="tns:Pisagor" />
+  </wsdl:message>
+  <wsdl:message name="PisagorSoapOut">
+    <wsdl:part name="parameters" element="tns:PisagorResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRssDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRssData" />
+  </wsdl:message>
+  <wsdl:message name="GetRssDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRssDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRssDataWithJsonFormatSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRssDataWithJsonFormat" />
+  </wsdl:message>
+  <wsdl:message name="GetRssDataWithJsonFormatSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRssDataWithJsonFormatResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllMenuSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllMenu" />
+  </wsdl:message>
+  <wsdl:message name="GetAllMenuSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetJsonFormatSoapIn">
+    <wsdl:part name="parameters" element="tns:GetJsonFormat" />
+  </wsdl:message>
+  <wsdl:message name="GetJsonFormatSoapOut">
+    <wsdl:part name="parameters" element="tns:GetJsonFormatResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTweetsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTweets" />
+  </wsdl:message>
+  <wsdl:message name="GetTweetsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTweetsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTweetsJsonSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTweetsJson" />
+  </wsdl:message>
+  <wsdl:message name="GetTweetsJsonSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTweetsJsonResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MyServiceSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Pisagor">
+      <wsdl:input message="tns:PisagorSoapIn" />
+      <wsdl:output message="tns:PisagorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRssData">
+      <wsdl:input message="tns:GetRssDataSoapIn" />
+      <wsdl:output message="tns:GetRssDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRssDataWithJsonFormat">
+      <wsdl:input message="tns:GetRssDataWithJsonFormatSoapIn" />
+      <wsdl:output message="tns:GetRssDataWithJsonFormatSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMenu">
+      <wsdl:input message="tns:GetAllMenuSoapIn" />
+      <wsdl:output message="tns:GetAllMenuSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJsonFormat">
+      <wsdl:input message="tns:GetJsonFormatSoapIn" />
+      <wsdl:output message="tns:GetJsonFormatSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTweets">
+      <wsdl:input message="tns:GetTweetsSoapIn" />
+      <wsdl:output message="tns:GetTweetsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTweetsJson">
+      <wsdl:input message="tns:GetTweetsJsonSoapIn" />
+      <wsdl:output message="tns:GetTweetsJsonSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MyServiceSoap" type="tns:MyServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Pisagor">
+      <soap:operation soapAction="http://tempuri.org/Pisagor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRssData">
+      <soap:operation soapAction="http://tempuri.org/GetRssData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRssDataWithJsonFormat">
+      <soap:operation soapAction="http://tempuri.org/GetRssDataWithJsonFormat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMenu">
+      <soap:operation soapAction="http://tempuri.org/GetAllMenu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJsonFormat">
+      <soap:operation soapAction="http://tempuri.org/GetJsonFormat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTweets">
+      <soap:operation soapAction="http://tempuri.org/GetTweets" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTweetsJson">
+      <soap:operation soapAction="http://tempuri.org/GetTweetsJson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MyServiceSoap12" type="tns:MyServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Pisagor">
+      <soap12:operation soapAction="http://tempuri.org/Pisagor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRssData">
+      <soap12:operation soapAction="http://tempuri.org/GetRssData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRssDataWithJsonFormat">
+      <soap12:operation soapAction="http://tempuri.org/GetRssDataWithJsonFormat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMenu">
+      <soap12:operation soapAction="http://tempuri.org/GetAllMenu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJsonFormat">
+      <soap12:operation soapAction="http://tempuri.org/GetJsonFormat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTweets">
+      <soap12:operation soapAction="http://tempuri.org/GetTweets" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTweetsJson">
+      <soap12:operation soapAction="http://tempuri.org/GetTweetsJson" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MyService">
+    <wsdl:port name="MyServiceSoap" binding="tns:MyServiceSoap">
+      <soap:address location="http://localhost:1122/MyService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MyServiceSoap12" binding="tns:MyServiceSoap12">
+      <soap12:address location="http://localhost:1122/MyService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
